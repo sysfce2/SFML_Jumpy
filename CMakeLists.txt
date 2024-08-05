@@ -28,5 +28,10 @@ if(NOT ${BUILD_SHARED_LIBS})
     endif()
 endif()
 
+if(WIN32)
+    set_target_properties(Jumpy PROPERTIES WIN32_EXECUTABLE TRUE)
+    target_link_libraries(Jumpy PRIVATE sfml-main)
+endif()
+
 install(TARGETS Jumpy DESTINATION .)
 install(DIRECTORY ${PROJECT_SOURCE_DIR}/bin/res DESTINATION .)
